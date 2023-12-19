@@ -9,9 +9,10 @@ from selenium.webdriver.common.by import By
 from time import sleep
 
 
-class SecondaryPage(Page):
+class MarketPage(Page):
 
-    OPEN_SECONDARY = (By.CSS_SELECTOR, "a[href='/secondary-listings'][aria-current='page']>div[class='div-block-33']")
+    OPEN_MARKET = (By.CSS_SELECTOR, "a[href='/market-companies']")
 
-    def open_secondary(self):
-        self.click(*self.OPEN_SECONDARY)
+    def open_market(self):
+        self.click(*self.OPEN_MARKET)
+

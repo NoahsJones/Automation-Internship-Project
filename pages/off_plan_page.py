@@ -9,9 +9,9 @@ from selenium.webdriver.common.by import By
 from time import sleep
 
 
-class SecondaryPage(Page):
+class OffPlanPage(Page):
 
-    OPEN_SECONDARY = (By.CSS_SELECTOR, "a[href='/secondary-listings'][aria-current='page']>div[class='div-block-33']")
+    OPEN_OFF_PLAN = (By.CSS_SELECTOR, "a[href='/off-plan']>div[class='menu-icon w-embed']")
 
-    def open_secondary(self):
-        self.click(*self.OPEN_SECONDARY)
+    def open_off_plan(self):
+        self.click(*self.OPEN_OFF_PLAN)

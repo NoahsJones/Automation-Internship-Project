@@ -8,6 +8,7 @@ from pages.off_plan_page import OffPlanPage
 from pages.settings_page import SettingsPage
 from pages.workshops_page import WorkshopsPage
 from pages.market_page import MarketPage
+from pages.sign_in_page import SignInPage
 
 
 class Applications:
@@ -23,3 +24,4 @@ class Applications:
         self.workshops_page = WorkshopsPage(driver)
         self.search_page = SearchPage(driver)
         self.market_page = MarketPage(driver)
+        self.sign_in_page = SignInPage(driver)

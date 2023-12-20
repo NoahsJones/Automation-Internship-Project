@@ -16,3 +16,7 @@ class MenuPage(Page):
     def open_my_menu(self):
         self.click(*self.OPEN_MY_MENU)
 
+
+    def open_main_page(self):
+        self.open_url("https://soft.reelly.io/")
+

@@ -19,7 +19,9 @@ class SignInPage(Page):
 
 
     def log_in(self, email, password):
-        sleep(1)
+        # sleep(1)
+        self.wait_for_element_appear(*self.EMAIL_FIELD)
+        self.wait_for_element_visible(*self.PASSWORD_FIELD)
         self.wait_for_element_click(*self.EMAIL_FIELD)
         self.wait_for_element_click(*self.PASSWORD_FIELD)
         self.input(email, *self.EMAIL_FIELD)

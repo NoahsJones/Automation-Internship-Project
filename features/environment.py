@@ -13,19 +13,19 @@ def browser_init(context, scenario_name):
     """
 
     ####CHROME BROWSER###
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
     ##CHROME HEADLESS MODE##
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('--headless')
-    # service = Service(ChromeDriverManager().install())
-    # context.driver = webdriver.Chrome(options=options, service=service)
-    # context.driver.set_window_size(1280, 720)
-    # context.driver.implicitly_wait(4)
-    # context.driver.wait = WebDriverWait(context.driver, 20)
-    # context.app = Applications(context.driver)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    service = Service(ChromeDriverManager().install())
+    context.driver = webdriver.Chrome(options=options, service=service)
+    context.driver.set_window_size(2000, 1000)
+    context.driver.implicitly_wait(4)
+    context.driver.wait = WebDriverWait(context.driver, 20)
+    context.app = Applications(context.driver)
 
     ###FIREFOX BROWSER###
     # DESKTOP PATH#
@@ -71,10 +71,10 @@ def browser_init(context, scenario_name):
 
 
     ####GENERAL SETTINGS####
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 20)
-    context.app = Applications(context.driver)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
 
 def before_scenario(context, scenario):

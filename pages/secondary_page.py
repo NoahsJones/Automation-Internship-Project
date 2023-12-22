@@ -17,7 +17,7 @@ class SecondaryPage(Page):
     FT_WANT_TO_BUY = (By.XPATH, "//div[contains(text(), 'Want to buy')]")
     FT_ALL = (By.XPATH, "//div[contains(text(), 'All')]")
     APPLY_FILTER = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
-    CARDS = (By.CSS_SELECTOR, "[wized='listingCardMLS']")
+    TAGS = (By.XPATH, "//div[@wized='saleTagMLS']")
     AGENTS = (By.CSS_SELECTOR, "[wized='usersCounter']")
 
     def open_secondary(self):
@@ -50,7 +50,7 @@ class SecondaryPage(Page):
 
     def verify_all_cards_for_filter(self, text):
         self.scroll_down(500)
-        tags = self.find_elements(*self.CARDS)
+        tags = self.find_elements(*self.TAGS)
         for tag in tags:
             tag_text = tag.text
-            assert text in tag_text, f"expected {text} but got {tag.text}"
+            assert text in tag_text, f"expected '{text}' but got '{tag.text}'"

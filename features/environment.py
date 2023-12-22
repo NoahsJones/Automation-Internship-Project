@@ -16,27 +16,39 @@ def browser_init(context, scenario_name):
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
     ##CHROME HEADLESS MODE##
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    service = Service(ChromeDriverManager().install())
-    context.driver = webdriver.Chrome(options=options, service=service)
-    context.driver.set_window_size(2000, 1000)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # service = Service(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(options=options, service=service)
+    # context.driver.set_window_size(2000, 1000)
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
+
+    ###FIREFOX BROWSER###
+    # DESKTOP PATH#
+    service = Service(executable_path="C:/Users/noahsj/Desktop/Automation Internship Project/geckodriver.exe")
+    # LAPTOP PATH#
+    # service = Service(executable_path="...")
+
+    context.driver = webdriver.Firefox(service=service)
+    context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 20)
     context.app = Applications(context.driver)
 
-    ###FIREFOX BROWSER###
-    # DESKTOP PATH#
-    # service = Service(executable_path="C:/Users/noahsj/Desktop/Automation Internship Project/geckodriver.exe")
-    # LAPTOP PATH#
-    # service = Service(executable_path="...")
-    # context.driver = webdriver.Firefox(service=service)
-
     ###SAFARI BROWSER### can't use since I do not have Safari installed
     # context.driver = webdriver.Safari()
-
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
     # # ##BROWSERSTACK EDGE##
     # bs_user = 'noahsj_p3KDFs'

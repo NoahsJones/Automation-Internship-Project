@@ -49,6 +49,7 @@ class SecondaryPage(Page):
 
 
     def verify_all_cards_for_filter(self, text):
+        self.wait_for_text_present(self.TAGS, text)
         self.scroll_down(500)
         tags = self.find_elements(*self.TAGS)
         for tag in tags:

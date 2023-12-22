@@ -21,6 +21,7 @@ def browser_init(context, scenario_name):
     # context.driver.wait = WebDriverWait(context.driver, 20)
     # context.app = Applications(context.driver)
 
+
     ##CHROME HEADLESS MODE##
     # options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
@@ -31,17 +32,19 @@ def browser_init(context, scenario_name):
     # context.driver.wait = WebDriverWait(context.driver, 20)
     # context.app = Applications(context.driver)
 
+
     ###FIREFOX BROWSER###
     # DESKTOP PATH#
-    service = Service(executable_path="C:/Users/noahsj/Desktop/Automation Internship Project/geckodriver.exe")
+    # service = Service(executable_path="C:/Users/noahsj/Desktop/Automation Internship Project/geckodriver.exe")
     # LAPTOP PATH#
     # service = Service(executable_path="...")
 
-    context.driver = webdriver.Firefox(service=service)
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 20)
-    context.app = Applications(context.driver)
+    # context.driver = webdriver.Firefox(service=service)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
+
 
     ###SAFARI BROWSER### can't use since I do not have Safari installed
     # context.driver = webdriver.Safari()
@@ -50,7 +53,8 @@ def browser_init(context, scenario_name):
     # context.driver.wait = WebDriverWait(context.driver, 20)
     # context.app = Applications(context.driver)
 
-    # # ##BROWSERSTACK EDGE##
+
+    # # ##BROWSERSTACK EDGE WINDOWS##
     # bs_user = 'noahsj_p3KDFs'
     # bs_key = 'BAiKTuqj9kkQtzaDyRBE'
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
@@ -64,9 +68,53 @@ def browser_init(context, scenario_name):
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
 
-    # ##BROWSERSTACK FIREFOX##
+    # # # ##BROWSERSTACK SAFARI MAC##
+    # bs_user = 'noahsj_p3KDFs'
+    # bs_key = 'BAiKTuqj9kkQtzaDyRBE'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'OS X',
+    #     'osVersion': 'Ventura',
+    #     "browserName" : "Safari",
+    #     'sessionName': scenario_name
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
+
+
+    # # ##BROWSERSTACK EDGE MAC##
+    bs_user = 'noahsj_p3KDFs'
+    bs_key = 'BAiKTuqj9kkQtzaDyRBE'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    options = Options()
+    bstack_options = {
+        'os': 'OS X',
+        'osVersion': 'Ventura',
+        "browserName" : "Edge",
+        'sessionName': scenario_name
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
+    context.driver.maximize_window()
+    context.driver.implicitly_wait(4)
+    context.driver.wait = WebDriverWait(context.driver, 20)
+    context.app = Applications(context.driver)
+
+
+    # ##BROWSERSTACK FIREFOX WINDOWS##
     # bs_user = 'noahsj_p3KDFs'
     # bs_key = 'BAiKTuqj9kkQtzaDyRBE'
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
@@ -80,6 +128,10 @@ def browser_init(context, scenario_name):
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
 
     ####GENERAL SETTINGS####

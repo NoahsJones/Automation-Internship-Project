@@ -11,7 +11,7 @@ from time import sleep
 
 class ReferralPage(Page):
 
-    OPEN_REFERRAL = (By.CSS_SELECTOR, "a[href='/referral/dashboard']>div")
+    OPEN_REFERRAL = (By.CSS_SELECTOR, "a[href='/referral/dashboard']")
 
     def open_referral(self):
         self.click(*self.OPEN_REFERRAL)

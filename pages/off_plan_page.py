@@ -11,7 +11,7 @@ from time import sleep
 
 class OffPlanPage(Page):
 
-    OPEN_OFF_PLAN = (By.CSS_SELECTOR, "a[href='/off-plan']>div[class='menu-icon w-embed']")
+    OPEN_OFF_PLAN = (By.CSS_SELECTOR, "a[href='/off-plan']")
 
     def open_off_plan(self):
         self.click(*self.OPEN_OFF_PLAN)

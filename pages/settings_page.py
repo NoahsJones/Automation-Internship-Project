@@ -11,7 +11,7 @@ from time import sleep
 
 class SettingsPage(Page):
 
-    OPEN_SETTINGS = (By.CSS_SELECTOR, "a[href='/settings']>div[class='menu-icon w-embed']")
+    OPEN_SETTINGS = (By.CSS_SELECTOR, "a[href='/settings']")
 
     def open_settings(self):
         self.click(*self.OPEN_SETTINGS)

@@ -4,9 +4,9 @@ Feature: Secondary Page
 
   Scenario: User can filter the Secondary deals by “want to sell” option
     Given Open sign-in page
-    When Log in with email: ***** and password: *****
+    When Log in with email: noahsj@cox.net and password: Letter2021
     And Click on Secondary tab
     Then Verify Secondary page opens
     When Click on Filters
     And Filter for Want to sell
-    Then Verify all cards have: for sale tag
+    Then Verify all cards have: For sale tag

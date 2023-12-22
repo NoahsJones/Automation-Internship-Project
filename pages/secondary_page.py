@@ -12,15 +12,15 @@ from time import sleep
 class SecondaryPage(Page):
 
     OPEN_SECONDARY = (By.CSS_SELECTOR, "a[href='/secondary-listings']")
-    FILTERS_BUTTON = (By.CSS_SELECTOR, "[wized='openFiltersWindow']")
+    FILTERS_BUTTON = (By.CSS_SELECTOR, "div.filter-button[wized='openFiltersWindow']")
     FT_WANT_TO_SELL = (By.XPATH, "//div[contains(text(), 'Want to sell')]")
     FT_WANT_TO_BUY = (By.XPATH, "//div[contains(text(), 'Want to buy')]")
     FT_ALL = (By.XPATH, "//div[contains(text(), 'All')]")
     APPLY_FILTER = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
-    CARDS = (By.CSS_SELECTOR, "[wized = 'saleTagBoxMLS']")
+    CARDS = (By.CSS_SELECTOR, "[wized='listingCardMLS']")
+    AGENTS = (By.CSS_SELECTOR, "[wized='usersCounter']")
 
     def open_secondary(self):
-        # sleep(4)
         self.wait_for_element_click(*self.OPEN_SECONDARY)
         self.click(*self.OPEN_SECONDARY)
 
@@ -30,13 +30,11 @@ class SecondaryPage(Page):
 
 
     def open_filters_panel(self):
-        # sleep(5)
-        self.wait_for_element_visible(*self.FILTERS_BUTTON)
+        self.wait_for_text_present(self.AGENTS, "9234")
         self.click(*self.FILTERS_BUTTON)
 
 
     def choose_filter_type(self, type):
-        # sleep(5)
         if type == 'Want to sell':
             self.wait_for_element_visible(*self.FT_WANT_TO_SELL)
             self.click(*self.FT_WANT_TO_SELL)
@@ -51,9 +49,8 @@ class SecondaryPage(Page):
 
 
     def verify_all_cards_for_filter(self, text):
-        # sleep(5)
-        cards = self.find_elements(*self.CARDS)
         self.scroll_down(500)
-        for card in cards:
-            tag = (By.XPATH, "//div[contains(text(), 'For sale')]")
-            assert tag, f"{tag} is not found in {card}"
+        tags = self.find_elements(*self.CARDS)
+        for tag in tags:
+            tag_text = tag.text
+            assert text in tag_text, f"expected {text} but got {tag.text}"

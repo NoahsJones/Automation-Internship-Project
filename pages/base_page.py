@@ -47,6 +47,13 @@ class Page:
         )
         return element
 
+
+    def wait_for_text_present(self, locator, text):
+        (self.wait.until(
+            EC.text_to_be_present_in_element(locator, text),
+            message=f'The text "{text}" did not appear.')
+        )
+
     def wait_for_element_disappear(self, *locator):
         (self.wait.until(
             EC.invisibility_of_element_located(locator),

@@ -13,17 +13,14 @@ class SignInPage(Page):
     EMAIL_FIELD = (By.ID, "email-2")
     PASSWORD_FIELD = (By.ID, "field")
     CONTINUE_LOGIN_BUTTON = (By.CSS_SELECTOR, "[wized='loginButton']")
+    USER_COUNTER = (By.CSS_SELECTOR, "[wized='usersCounter']")
 
     def open_sign_in_page(self):
         self.open_url("https://soft.reelly.io/sign-in")
 
 
     def log_in(self, email, password):
-        # sleep(1)
-        self.wait_for_element_appear(*self.EMAIL_FIELD)
-        self.wait_for_element_visible(*self.PASSWORD_FIELD)
-        self.wait_for_element_click(*self.EMAIL_FIELD)
-        self.wait_for_element_click(*self.PASSWORD_FIELD)
+        self.wait_for_text_present(self.USER_COUNTER, text="9234")
         self.input(email, *self.EMAIL_FIELD)
         self.input(password, *self.PASSWORD_FIELD)
         self.click(*self.CONTINUE_LOGIN_BUTTON)

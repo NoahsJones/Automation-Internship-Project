@@ -11,7 +11,8 @@ from time import sleep
 
 class MenuPage(Page):
 
-    OPEN_MY_MENU = (By.CSS_SELECTOR, "a[href='/'][class*='menu-button']>div")
+    OPEN_MY_MENU = (By.CSS_SELECTOR, "a[href='/'][class*='menu-button']")
+    ADD_A_PROJECT_BUTTON = (By.CSS_SELECTOR, "a[href='/add-a-project']")
 
     def open_my_menu(self):
         self.click(*self.OPEN_MY_MENU)
@@ -19,4 +20,9 @@ class MenuPage(Page):
 
     def open_main_page(self):
         self.open_url("https://soft.reelly.io/")
+
+
+    def add_project(self):
+        self.click(*self.ADD_A_PROJECT_BUTTON)
+
 

@@ -10,7 +10,7 @@ from time import sleep
 
 
 class SecondaryPage(Page):
-
+    ### DESKTOP LOCATORS ###
     OPEN_SECONDARY = (By.CSS_SELECTOR, "a[href='/secondary-listings']")
     FILTERS_BUTTON = (By.CSS_SELECTOR, "div.filter-button[wized='openFiltersWindow']")
     FT_WANT_TO_SELL = (By.XPATH, "//div[contains(text(), 'Want to sell')]")
@@ -19,7 +19,13 @@ class SecondaryPage(Page):
     APPLY_FILTER = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
     TAGS = (By.XPATH, "//div[@wized='saleTagMLS']")
     AGENTS = (By.CSS_SELECTOR, "[wized='usersCounter']")
+    NUMBER = (By.XPATH, "//div[@wized='usersCounter']")
 
+    ### MOBILE LOCATORS ###
+    SECONDARY_TAB = (By.CSS_SELECTOR, "[wized='mobileTabGame']")
+
+
+    ### DESKTOP METHODS ###
     def open_secondary(self):
         self.wait_for_element_click(*self.OPEN_SECONDARY)
         self.click(*self.OPEN_SECONDARY)
@@ -30,8 +36,13 @@ class SecondaryPage(Page):
 
 
     def open_filters_panel(self):
-        self.wait_for_text_present(self.AGENTS, "9234")
-        self.click(*self.FILTERS_BUTTON)
+        self.wait_for_text_present(self.FILTERS_BUTTON, "Filters")
+        can_open = False
+        while can_open == False:
+            number = self.find_element(*self.NUMBER).text
+            if number.isdigit():
+                can_open = True
+                self.click(*self.FILTERS_BUTTON)
 
 
     def choose_filter_type(self, type):
@@ -50,8 +61,14 @@ class SecondaryPage(Page):
 
     def verify_all_cards_for_filter(self, text):
         self.wait_for_text_present(self.TAGS, text)
-        self.scroll_down(500)
+        self.scroll_down(5000)
         tags = self.find_elements(*self.TAGS)
         for tag in tags:
             tag_text = tag.text
-            assert text in tag_text, f"expected '{text}' but got '{tag.text}'"
+            assert text in tag_text, f"expected '{text}' but got '{tag_text}'"
+
+
+    ###### MOBILE METHODS #####
+
+    def mobile_secondary_tab(self):
+        self.click(*self.SECONDARY_TAB)

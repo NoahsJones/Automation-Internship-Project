@@ -22,6 +22,16 @@ def browser_init(context, scenario_name):
     # context.app = Applications(context.driver)
 
 
+    ###CHROME MOBILE WEB###
+    mobile_emulation = {"deviceName": "Surface Duo"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(options=chrome_options)  # Removed desired_capabilities
+    context.driver.implicitly_wait(4)
+    context.driver.wait = WebDriverWait(context.driver, 20)
+    context.app = Applications(context.driver)
+
+
     ##CHROME HEADLESS MODE##
     # options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
@@ -37,7 +47,7 @@ def browser_init(context, scenario_name):
     # DESKTOP PATH#
     # service = Service(executable_path="C:/Users/noahsj/Desktop/Automation Internship Project/geckodriver.exe")
     # LAPTOP PATH#
-    # service = Service(executable_path="...")
+    # service = Service(executable_path="C:/Users/noahs/Automation - Internship - Project/geckodriver.exe")
 
     # context.driver = webdriver.Firefox(service=service)
     # context.driver.maximize_window()
@@ -95,23 +105,23 @@ def browser_init(context, scenario_name):
 
 
     # # ##BROWSERSTACK EDGE MAC##
-    bs_user = 'noahsj_p3KDFs'
-    bs_key = 'BAiKTuqj9kkQtzaDyRBE'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    options = Options()
-    bstack_options = {
-        'os': 'OS X',
-        'osVersion': 'Ventura',
-        "browserName" : "Edge",
-        'sessionName': scenario_name
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 20)
-    context.app = Applications(context.driver)
+    # bs_user = 'noahsj_p3KDFs'
+    # bs_key = 'BAiKTuqj9kkQtzaDyRBE'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'OS X',
+    #     'osVersion': 'Ventura',
+    #     "browserName" : "Edge",
+    #     'sessionName': scenario_name
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
 
     # ##BROWSERSTACK FIREFOX WINDOWS##

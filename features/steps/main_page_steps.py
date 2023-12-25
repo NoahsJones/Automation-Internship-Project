@@ -14,3 +14,16 @@ def open_main_page(context):
 @when("Click on Secondary tab")
 def open_secondary_tab(context):
     context.app.secondary_page.open_secondary()
+
+
+
+#### MOBILE STEPS ####
+
+@when("Mobile - Tap on Off-Plan tab")
+def mobile_tap_off_plan_tab(context):
+    context.app.menu_page.mobile_open_off_plan_tab()
+
+
+@when("Mobile - Tap on Secondary tab")
+def mobile_tap_secondary_tab(context):
+    context.app.menu_page.mobile_open_secondary_tab()

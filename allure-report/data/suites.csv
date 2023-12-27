@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Tue Dec 26 19:59:22 MST 2023","Tue Dec 26 19:59:34 MST 2023","11875","","","","","","User can search for a product",""
+"broken","Tue Dec 26 19:59:38 MST 2023","Tue Dec 26 19:59:42 MST 2023","4498","","","","","","Mobile - User can filter the Secondary deals by “want to sell” option",""
+"passed","Tue Dec 26 20:00:00 MST 2023","Tue Dec 26 20:00:19 MST 2023","19045","","","","","","User can filter the Secondary deals by “want to sell” option",""

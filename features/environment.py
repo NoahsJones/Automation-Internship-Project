@@ -13,23 +13,23 @@ def browser_init(context, scenario_name):
     """
 
     ####CHROME BROWSER###
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
-    # context.driver.maximize_window()
-    # context.driver.implicitly_wait(4)
-    # context.driver.wait = WebDriverWait(context.driver, 20)
-    # context.app = Applications(context.driver)
-
-
-    ###CHROME MOBILE WEB###
-    mobile_emulation = {"deviceName": "Surface Duo"}
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    context.driver = webdriver.Chrome(options=chrome_options)  # Removed desired_capabilities
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
+    context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 20)
     context.app = Applications(context.driver)
+
+
+    ###CHROME MOBILE WEB###
+    # mobile_emulation = {"deviceName": "Surface Duo"}
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # context.driver = webdriver.Chrome(options=chrome_options)  # Removed desired_capabilities
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 20)
+    # context.app = Applications(context.driver)
 
 
     ##CHROME HEADLESS MODE##

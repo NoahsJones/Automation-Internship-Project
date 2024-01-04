@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager #This is so you don't have to manually install like I already did
+#the driver exe. and put it in the project yourself. The webdrivermangager library installs and maintains the driver for you.
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from apps.applications import Applications
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,23 +16,23 @@ def browser_init(context, scenario_name):
     """
 
     ####CHROME BROWSER###
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 20)
-    context.app = Applications(context.driver)
-
-
-    ###CHROME MOBILE WEB###
-    # mobile_emulation = {"deviceName": "Surface Duo"}
-    # chrome_options = webdriver.ChromeOptions()
-    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    # context.driver = webdriver.Chrome(options=chrome_options)  # Removed desired_capabilities
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+    # context.driver.maximize_window()
     # context.driver.implicitly_wait(4)
     # context.driver.wait = WebDriverWait(context.driver, 20)
     # context.app = Applications(context.driver)
+
+
+    ###CHROME MOBILE WEB###
+    mobile_emulation = {"deviceName": "Surface Duo"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(options=chrome_options)  # Removed desired_capabilities
+    context.driver.implicitly_wait(4)
+    context.driver.wait = WebDriverWait(context.driver, 20)
+    context.app = Applications(context.driver)
 
 
     ##CHROME HEADLESS MODE##

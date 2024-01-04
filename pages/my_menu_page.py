@@ -22,7 +22,11 @@ class MenuPage(Page):
     OFF_PLAN_TAB = (By.XPATH, "//*[@class='menu-button-text' and text()='Off-plan']") #Does not work but shows valid
     MARKET_TAB = (By.CSS_SELECTOR, "a[href='/education']")
     ENTIRE_MENU_BAR_TABS = (By.CSS_SELECTOR, "[wized='mobileMenuForVerifiedUsers']") #Does not work but shows valid
-    ABSOLUTE_PATH_OFF_PLAN_TAB = (By.XPATH, "/html/body/div[4]/a[1]/div[2]") #Works but obviously not most stable
+    # ABSOLUTE_PATH_OFF_PLAN_TAB = (By.XPATH, "/html/body/div[4]/a[1]/div[2]") #Works but obviously not most stable
+    SECONDARY_MARKET = (By.ID, "w-node-e7ffe9f0-8b7e-7431-ac8e-347b28f2a83f-d360c7ea")
+    SUPPORT_BTN = (By.XPATH, "//div[@class='support']")
+    TITLE_LISTINGS = (By.XPATH, "//div[@class='page-title listing']")
+    TITLE_MLS = (By.XPATH, "//div[@class='mls']")
 
 
 
@@ -41,11 +45,20 @@ class MenuPage(Page):
 
     ### MOBILE METHODS ###
 
-    def mobile_open_off_plan_tab(self):
-        self.click(*self.ABSOLUTE_PATH_OFF_PLAN_TAB)
+    # def mobile_open_off_plan_tab(self):
+    #     self.click(*self.ABSOLUTE_PATH_OFF_PLAN_TAB)
 
 
 
     def mobile_open_secondary_tab(self):
+        self.wait_for_element_appear(*self.SECONDARY_TAB)
+        self.wait_for_text_present(self.TITLE_LISTINGS, 'My listings')
+        self.wait_for_text_present(self.TITLE_MLS, 'MLS')
+        self.wait_for_element_visible(*self.TITLE_LISTINGS)
+        self.wait_for_element_visible(*self.TITLE_MLS)
         self.click(*self.SECONDARY_TAB)
+
+
+    def open_secondary_market(self):
+        self.wait_for_element_click(*self.SECONDARY_MARKET)
 

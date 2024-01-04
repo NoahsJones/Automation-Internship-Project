@@ -12,13 +12,14 @@ Feature: Secondary Page
     And Filter for Want to sell
     Then Verify all cards have: For sale tag
 
-#  @mobile
-#  Scenario: Mobile - User can filter the Secondary deals by “want to sell” option
-#    Given Mobile - Open sign-in page
-#    When Mobile - Log in with email: noahsj@cox.net and password: Letter2021
+  @mobile
+  Scenario: Mobile - User can filter the Secondary deals by “want to sell” option
+    Given Mobile - Open sign-in page
+    When Mobile - Log in with email: noahsj@cox.net and password: Letter2021
 #    And Mobile - Tap on Off-Plan tab
-#    And Mobile - Tap on Secondary tab
-#    Then Mobile - Verify Secondary page opens
-#    When Mobile - Tap on Filters
-#    And Mobile - Filter for Want to sell
-#    Then Mobile - Verify all cards have: For sale tag
+    And Mobile - Tap on secondary market
+    And Mobile - Tap on Secondary tab
+    Then Mobile - Verify Secondary page opens
+    When Mobile - Tap on Filters
+    And Mobile - Filter for Want to sell
+    Then Mobile - Verify all cards have: For sale tag

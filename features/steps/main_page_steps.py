@@ -24,6 +24,12 @@ def mobile_tap_off_plan_tab(context):
     context.app.menu_page.mobile_open_off_plan_tab()
 
 
+@when("Mobile - Tap on secondary market")
+def mobile_tap_off_plan_tab(context):
+    context.app.page.scroll_down(6000)
+    context.app.menu_page.open_secondary_market()
+
+
 @when("Mobile - Tap on Secondary tab")
 def mobile_tap_secondary_tab(context):
     context.app.menu_page.mobile_open_secondary_tab()
